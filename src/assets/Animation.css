@@ -1,0 +1,65 @@
+
+.animation1::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1%;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+.animation1:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+.btnAnimation{
+    background-color: aqua;
+    color: yellowgreen;
+}
+.btnAnimation:hover::after {
+    /* Hover effect - back side */
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+  
+  .btnAnimation:hover::before {
+    /* Hover effect - front side */
+    opacity: 0;
+    transform: translateY(50%) rotateX(90deg);
+  }
+  
+  .btnAnimation::after {
+    /* Back side of the button */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    color: #323237;
+    display: block;
+    transition: 0.5s; /* or use $speed variable if it's defined */
+    position: absolute;
+    background: #adadaf;
+    content: attr(data-back);
+    transform: translateY(-50%) rotateX(90deg);
+  }
+  
+  .btnAnimation::before {
+    /* Front side of the button */
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #adadaf;
+    display: block;
+    padding: 0 30px;
+    line-height: 40px;
+    transition: 0.5s; /* or use $speed variable if it's defined */
+    position: relative;
+    background: #323237;
+    content: attr(data-front);
+    transform: translateY(0) rotateX(0);
+  }
